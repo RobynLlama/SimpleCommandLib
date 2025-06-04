@@ -10,7 +10,7 @@ namespace SimpleCommandLib.ExampleProgram
     {
       Console.WriteLine("Parsing logic startup");
       string? input = string.Empty;
-      ExampleDispatcher dispatcher = new();
+      ExampleDispatcherRoot dispatcher = new();
 
       while (Running)
       {

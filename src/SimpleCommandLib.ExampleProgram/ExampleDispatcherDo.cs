@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SimpleCommandLib.ExampleProgram;
 
-public class ExampleDispatcherTop : CommandDispatcher, ICommandRunner
+public class ExampleDispatcherDo : CommandDispatcher, ICommandRunner
 {
   #region ICommandRunner
   /**************************
@@ -21,7 +21,7 @@ public class ExampleDispatcherTop : CommandDispatcher, ICommandRunner
   }
   #endregion
 
-  public ExampleDispatcherTop()
+  public ExampleDispatcherDo()
   {
     TryAddCommand(new HelpCommand(this));
   }
