@@ -9,4 +9,7 @@ public class ExampleDispatcherRoot : CommandDispatcher
   {
     {"do", new ExampleDispatcherDo()}
   };
+
+  public override void OnCommandNotFound(string commandName) =>
+    new HelpCommand(this).Execute([]);
 }
