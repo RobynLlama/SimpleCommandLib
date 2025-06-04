@@ -4,8 +4,12 @@ This project demonstrates the basics of setting up commands using the SimpleComm
 
 ## Commands
 
-- **do**: This command acts as a container for subcommands. By itself, it does nothing but serves as a namespace for nested commands. The primary subcommand available is `exit`.
+> [!NOTE]
+> The following commands are structured such that all commands are nested within the `do` command under the root. This is merely to demonstrate how to nest commands, any number of commands could be on the root as well!
+
+- **do**: This command acts as a container for subcommands. By itself, it does nothing but serves as a namespace for nested commands.
   - **exit**: This is a subcommand under the `do` command. Executing this command will terminate the input loop of the example application, effectively ending the session.
+  - **help**: Another subcommand under `do` this one is an example of how to create a nice looking help that enumerates it's parent's commands for the listing
 
 ## Running the Example
 
