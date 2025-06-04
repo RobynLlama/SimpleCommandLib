@@ -3,9 +3,23 @@ using System.Collections.Generic;
 
 namespace SimpleCommandLib.ExampleProgram;
 
-public class ExampleDispatcherTop : CommandDispatcher
+public class ExampleDispatcherTop : CommandDispatcher, ICommandRunner
 {
-  public Dictionary<string, ICommandRunner> AvailableCommands => CommandsMap;
+  #region ICommandRunner
+  /**************************
+   Command Runner Interface:
+  ***************************/
+  public string CommandName { get; } = "do";
+  public string CommandUsage => "`do` is a grouping of subcommands, try `do help` for more info";
+
+  public bool Execute(string[] args)
+  {
+    if (args.Length > 0)
+      return RunCommand(args[0], args[1..]);
+
+    return false;
+  }
+  #endregion
 
   public ExampleDispatcherTop()
   {

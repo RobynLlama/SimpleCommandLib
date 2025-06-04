@@ -7,6 +7,6 @@ public class ExampleDispatcher : CommandDispatcher
 {
   protected override Dictionary<string, ICommandRunner> CommandsMap { get; set; } = new(StringComparer.InvariantCultureIgnoreCase)
   {
-    {"do", new ExampleCommandTop()}
+    {"do", new ExampleDispatcherTop()}
   };
 }
