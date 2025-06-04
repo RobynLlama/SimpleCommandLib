@@ -14,6 +14,12 @@ public interface ICommandRunner
   string CommandName { get; }
 
   /// <summary>
+  /// A description of how to use this command, what it does
+  /// or expectations around arguments it should be provided, etc
+  /// </summary>
+  string CommandUsage { get; }
+
+  /// <summary>
   /// Executes the command with arguments
   /// </summary>
   /// <param name="args">The arguments to pass to the command. Can be empty `[]` for commands that don't expect input</param>
