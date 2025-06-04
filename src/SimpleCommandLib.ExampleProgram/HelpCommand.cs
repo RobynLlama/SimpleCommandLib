@@ -10,9 +10,14 @@ public class HelpCommand(CommandDispatcher parent) : ICommandRunner
 
   public bool Execute(string[] args)
   {
+    string parentCommandName = "`";
+
+    if (Parent is ICommandRunner parentCommand)
+      parentCommandName = $"`{parentCommand.CommandName} ";
+
     Console.WriteLine("Available Commands:");
     foreach (var cmd in Parent.EnumerateCommands)
-      Console.WriteLine($"  {cmd.Key} - {cmd.Value.CommandUsage}");
+      Console.WriteLine($"{parentCommandName}{cmd.Key}` - {cmd.Value.CommandUsage}");
     return true;
   }
 }
