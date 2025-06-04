@@ -42,6 +42,16 @@ public abstract class CommandDispatcher
   }
 
   /// <summary>
+  /// This is the default handler for when a command is not found
+  /// and may be overridden in derived classes for specialized
+  /// command resolution, cleanup, or other needs.
+  /// </summary>
+  /// <param name="commandName"></param>
+  /// <exception cref="CommandFailedException"></exception>
+  public virtual void OnCommandNotFound(string commandName) =>
+    throw new CommandFailedException(commandName, GetType(), $"Command not Found in {nameof(CommandsMap)}");
+
+  /// <summary>
   /// Splits the given string into parts, respecting quotes and
   /// tries to run the first item as a command from the Map
   /// </summary>
@@ -80,7 +90,10 @@ public abstract class CommandDispatcher
   public bool RunCommand(string commandName, string[] args)
   {
     if (!CommandsMap.TryGetValue(commandName, out var cmd))
-      throw new CommandFailedException(commandName, GetType(), $"Command not Found in {nameof(CommandsMap)}");
+    {
+      OnCommandNotFound(commandName);
+      return false;
+    }
 
     return cmd.Execute(args);
   }
