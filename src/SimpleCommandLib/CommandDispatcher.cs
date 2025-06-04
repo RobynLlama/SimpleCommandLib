@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using SimpleCommandLib.Extensions;
 
 namespace SimpleCommandLib;
@@ -10,6 +10,12 @@ namespace SimpleCommandLib;
 /// </summary>
 public abstract class CommandDispatcher
 {
+  /// <summary>
+  /// This is a safe public facing list of all commands for enumerations
+  /// while keeping the original dictionary from being accidentally modified
+  /// </summary>
+  public KeyValuePair<string, ICommandRunner>[] EnumerateCommands { get => [.. CommandsMap]; }
+
   /// <summary>
   /// This is the mapping of string command names to actual runners.
   /// When extending CommandDispatcher I recommend using `StringComparer.InvariantCultureIgnoreCase`
