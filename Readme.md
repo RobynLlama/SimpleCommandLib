@@ -16,7 +16,7 @@ SimpleCommandLib will perform in any scenario where user input or strings need t
 ### Prerequisites
 
 - .NET 9.0 SDK or later
-- Install from [Nuget](https://www.nuget.org/packages/SimpleCommandLib/1.0.0)
+- Install from [Nuget](https://www.nuget.org/packages/SimpleCommandLib/1.1.0)
 
 ### Usage
 
