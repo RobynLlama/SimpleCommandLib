@@ -17,7 +17,7 @@ public class ExampleDispatcherDo : CommandDispatcher, ICommandRunner
     if (args.Length > 0)
       return RunCommand(args[0], args[1..]);
 
-    return false;
+    return RunCommand("help", []);
   }
   #endregion
 
