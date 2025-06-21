@@ -68,7 +68,7 @@ public abstract class CommandDispatcher
   /// the string is not suitable to be split for commands, such as if
   /// the string contains no content or is null
   /// </returns>
-  public bool ParseAndRunCommand(string input)
+  public virtual bool ParseAndRunCommand(string input)
   {
     string[] values = input.SplitOutsideQuotes(' ');
 
@@ -93,7 +93,7 @@ public abstract class CommandDispatcher
   /// an error while running
   /// </returns>
   /// <exception cref="CommandFailedException">Thrown if the command was unable to be found</exception>
-  public bool RunCommand(string commandName, string[] args)
+  public virtual bool RunCommand(string commandName, string[] args)
   {
     if (!CommandsMap.TryGetValue(commandName, out var cmd))
     {
